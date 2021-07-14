@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-d=l#kty3+&)0*&q_gj@dakfh*1^fr8+4td@*ao(vj=)0u552(z'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -47,7 +47,7 @@ STATICFILES_DIRS = [
 ]
 
 AWS_ACCESS_KEY_ID = 'AKIAXZ6ACCEH2WC2HAPC'
-AWS_SECRET_ACCESS_KEY = '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'
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_KEY')
 AWS_STORAGE_BUCKET_NAME = 'portfolio-ritwik'
 
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
@@ -104,7 +104,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'db',
         'USER': 'db',
-        'PASSWORD': 'c3o8y5892hnceaji',
+        'PASSWORD': os.environ.get('DATABASE_PASSWORD'),
         'HOST': 'app-048e68bc-080b-4d8a-8f13-60247ed216fd-do-user-6747397-0.b.db.ondigitalocean.com',
         'PORT': '25060',
     }
